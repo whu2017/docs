@@ -1,0 +1,32 @@
+site_name: EasyReading API Docs
+site_favicon: img/favicon.ico
+
+repo_url: 'https://github.com/whu2017/easyreading'
+repo_name: 'EasyReading'
+
+docs_dir: 'docs'
+theme_dir: 'theme'
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc(permalink=true)
+  - footnotes
+  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tilde
+
+extra:
+  font: false
+
+pages:
+  - '概述': 'index.md'
