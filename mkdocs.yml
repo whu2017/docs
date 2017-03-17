@@ -26,9 +26,12 @@ markdown_extensions:
   - pymdownx.tilde
 
 extra:
+  palette:
+    primary: 'blue grey'
+    accent: 'light blue'
   font: false
 
 pages:
   - '概述': 'index.md'
-  - '用户模块':
-    - '权限 API': 'user/permission.md'
+  - '用户 API': 'user.md'
+  - '权限 API': 'permission.md'

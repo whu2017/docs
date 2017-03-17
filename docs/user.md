@@ -1,0 +1,208 @@
+# 用户 API
+
+## 注册用户
+
+!!! api ""
+    **POST** /user/register
+
+### Request
+
+| 参数名称 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `username` | String |  | 用户名 |
+| `password` | String | | 密码 |
+| `email` | String | | Email 地址 | 
+| `phone` | String | | (选填) 手机号 |
+| `nickname` | String | | (选填) 昵称 |
+
+### Response
+
+#### Status Code 200 (OK)
+
+```json
+{
+    "token": "xdsafasdfasfasdf",
+    "expires_at": 1324124312
+}
+```
+
+* `token` 为用户身份标识，所有需要用户身份认证的接口均需要在 HTTP Header 中携带此 Token
+* `expires_at` 为 token 的过期时间，超过此日期则 token 不可用，必须 **权限状态更新** 接口来刷新权限
+
+## 登录
+
+!!! api ""
+    **POST** /user/login
+
+### Request
+
+| 参数名称 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `username` | String |  | 用户名 |
+| `password` | String | | 密码 |
+
+### Response
+
+#### Status Code 200 (OK)
+
+```json
+{
+    "token": "xdsafasdfasfasdf",
+    "expires_at": 1324124312
+}
+```
+
+## 注销（需鉴权）
+
+!!! api ""
+    **POST** /user/logout
+
+成功注销则返回 200 状态码，注销后对应的 token 将会失效。
+
+## 重置密码
+
+!!! api ""
+    **POST** /user/password/reset
+
+### Request
+
+| 参数名称 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `email` | String | | Email 地址 |
+
+### Response
+
+```json
+{
+    "reset_token": "asdfasasdfasdf",
+    "expires_at": 12341234134
+}
+```
+
+调用此接口后，如果表单验证合法，会朝提供的 email 地址发送一封邮件，包含一个六位数的验证码 `code`，用于下面的确认接口中。
+
+## 重置密码 - 确认
+
+!!! api ""
+    **POST** /user/password/reset/confirm
+
+### Request
+
+| 参数名称 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `username` | String | | 用户名 |
+| `reset_token` | String | | 重置 Token |
+| `code` | String | | 验证码 |
+| `new_password` | String | | 新的密码 |
+
+### Response
+
+#### Status Code 200 (OK)
+
+```json
+{
+    "token": "xdsafasdfasfasdf",
+    "expires_at": 1324124312
+}
+```
+
+当重置密码后，自动登录用户并返回代表用户身份的 token 等信息。
+
+## 密码更改（需鉴权）
+
+!!! api ""
+    **POST** /user/password/change
+
+### Request
+
+| 参数名称 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `username` | String | | 用户名 |
+| `old_password` | String | | 旧的密码 | 
+| `new_password` | String | | 新的密码 |
+
+### Response
+
+#### Status Code 200 (OK)
+
+```json
+{
+    "token": "xdsafasdfasfasdf",
+    "expires_at": 1324124312
+}
+```
+
+调用此接口会更新用户的已有 token。
+
+## 用户信息获取（需鉴权）
+
+!!! api ""
+    **GET** /user/profile
+
+### Response
+
+#### Status Code 200 (OK)
+
+```json
+{
+    "username": "doraemonext",
+    "email": "doraemonext@gmail.com",
+    "phone": "1555555555",
+    "nickname": "飞天的猪",
+    "signature": "some test",
+    "gravatar_url": "http://oott.me/gravatar/2341fdsfsfsf2341.jpg",
+    "options_sync_progress": true,
+    "options_clean_cache": false,
+    "options_display_progress": true,
+    "options_wifi_download_only": false,
+    "options_accept_push": true,
+    "options_auto_buy_chapter": false
+}
+```
+
+## 用户信息更新（需鉴权）
+
+!!! api ""
+    **PUT** /user/profile
+
+### Request
+
+如果不需要修改，则无需提供对应项。
+
+| 参数名称 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `phone` | String | | 手机号(选填) |
+| `nickname` | String | | 昵称(选填) |
+| `signature` | String | | 个性签名(选填) |
+| `options_sync_progress` | Boolean | | 是否同步进度(选填) |
+| `options_clean_cache` | Boolean | | 是否自动清除缓存(选填) |
+| `options_display_progress` | Boolean | | 是否显示阅读进度(选填) |
+| `options_wifi_download_only` | Boolean | | 是否仅用 wifi 下载(选填) |
+| `options_accept_push` | Boolean | | 是否接受推送(选填) |
+| `options_auto_buy_chapter` | Boolean | | 是否自动购买章节(选填) |
+
+### Response
+
+#### Status Code 200 (OK)
+
+```json
+{
+    "username": "doraemonext",
+    "email": "doraemonext@gmail.com",
+    "phone": "1555555555",
+    "nickname": "飞天的猪",
+    "signature": "some test",
+    "gravatar_url": "http://oott.me/gravatar/2341fdsfsfsf2341.jpg",
+    "options_sync_progress": true,
+    "options_clean_cache": false,
+    "options_display_progress": true,
+    "options_wifi_download_only": false,
+    "options_accept_push": true,
+    "options_auto_buy_chapter": false
+}
+```
+
+以上返回为更新后的用户个人信息。
+
+
+
