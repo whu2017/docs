@@ -30,3 +30,5 @@ extra:
 
 pages:
   - '概述': 'index.md'
+  - '用户模块':
+    - '权限 API': 'user/permission.md'
