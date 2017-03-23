@@ -10,6 +10,7 @@
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
 | `identifier` | String |  | 用户标识符（Email 或 手机号） |
+| `function` | Integer | | 描述了验证的作用:<br/>`0`: 注册<br/>`1`: 重置密码<br/>`2`: 更新信息 |
 
 ### Response
 
@@ -102,34 +103,14 @@
 
 !!! api ""
     **POST** /user/password/reset
+    
+调用此接口前需要先通过 **用户标识符验证接口** 获取 `identifier_token`(用户标识 Token) 并朝用户发送验证码。
 
 ### Request
 
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `identifier` | String | | 用户标识符（Email 地址或手机号） |
-
-### Response
-
-```json
-{
-    "reset_token": "asdfasasdfasdf",
-    "expires_at": 12341234134
-}
-```
-
-调用此接口后，如果表单验证合法，会朝提供的 email 地址或手机号发送一封邮件或短信，包含一个六位数的验证码 `code`，用于下面的确认接口中。
-
-## 重置密码 - 确认
-
-!!! api ""
-    **POST** /user/password/reset/confirm
-
-### Request
-
-| 参数名称 | 类型 | 默认值 | 描述 |
-| --- | --- | --- | --- |
-| `reset_token` | String | | 重置 Token |
+| `identifier_token` | String | | 用户标识 Token |
 | `code` | String | | 验证码 |
 | `new_password` | String | | 新的密码 |
 
