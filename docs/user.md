@@ -1,5 +1,41 @@
 # 用户 API
 
+## 用户标识符验证接口
+
+!!! api ""
+    **POST** /user/identifier/check
+    
+### Request
+
+| 参数名称 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `identifier` | String |  | 用户标识符（Email 或 手机号） |
+
+### Response
+
+#### Status Code 200 (OK)
+
+当提供的 Email 或手机号可用时，返回内容如下：
+
+```json
+{
+    "identifier": "xxx@xxx.com",
+    "available": true,
+    "identifier_token": "asdfasdfasfasdfasf"
+}
+```
+
+此处 `identifier_token` 为注册接口/更新标识符信息接口中使用的 **用户标识 Token**。同时系统会发送一封验证邮件(或短信)到对应 Email 或手机号上。
+
+当 Email 或手机号不可用时，返回内容如下：
+
+```json
+{
+    "identifier": "xxx@xxx.com",
+    "available": false,
+}
+```
+
 ## 注册用户
 
 !!! api ""
@@ -9,15 +45,16 @@
 
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `username` | String |  | 用户名 |
+| `identifier_token` | String |  | 用户标识 Token |
+| `code` | String | | 验证码 |
 | `password` | String | | 密码 |
-| `email` | String | | Email 地址 | 
-| `phone` | String | | (选填) 手机号 |
 | `nickname` | String | | (选填) 昵称 |
 
 ### Response
 
 #### Status Code 200 (OK)
+
+当注册成功时自动登录用户，并返回如下内容：
 
 ```json
 {
@@ -38,12 +75,14 @@
 
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `username` | String |  | 用户名 |
+| `identifier` | String | | 唯一标识符（Email 或 手机号） |
 | `password` | String | | 密码 |
 
 ### Response
 
 #### Status Code 200 (OK)
+
+登录成功则返回用户的鉴权 Token 和过期时间。
 
 ```json
 {
@@ -68,7 +107,7 @@
 
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `email` | String | | Email 地址 |
+| `identifier` | String | | 用户标识符（Email 地址或手机号） |
 
 ### Response
 
@@ -79,7 +118,7 @@
 }
 ```
 
-调用此接口后，如果表单验证合法，会朝提供的 email 地址发送一封邮件，包含一个六位数的验证码 `code`，用于下面的确认接口中。
+调用此接口后，如果表单验证合法，会朝提供的 email 地址或手机号发送一封邮件或短信，包含一个六位数的验证码 `code`，用于下面的确认接口中。
 
 ## 重置密码 - 确认
 
@@ -90,7 +129,6 @@
 
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `username` | String | | 用户名 |
 | `reset_token` | String | | 重置 Token |
 | `code` | String | | 验证码 |
 | `new_password` | String | | 新的密码 |
@@ -117,7 +155,7 @@
 
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `username` | String | | 用户名 |
+| `identifier` | String | | 用户标识符（Email 或手机号） |
 | `old_password` | String | | 旧的密码 | 
 | `new_password` | String | | 新的密码 |
 
@@ -145,7 +183,7 @@
 
 ```json
 {
-    "username": "doraemonext",
+    "user_id": 2341,
     "email": "doraemonext@gmail.com",
     "phone": "1555555555",
     "nickname": "飞天的猪",
@@ -171,7 +209,6 @@
 
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `phone` | String | | 手机号(选填) |
 | `nickname` | String | | 昵称(选填) |
 | `signature` | String | | 个性签名(选填) |
 | `options_sync_progress` | Boolean | | 是否同步进度(选填) |
@@ -187,7 +224,7 @@
 
 ```json
 {
-    "username": "doraemonext",
+    "user_id": 34134,
     "email": "doraemonext@gmail.com",
     "phone": "1555555555",
     "nickname": "飞天的猪",
