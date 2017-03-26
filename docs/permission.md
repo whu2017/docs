@@ -50,11 +50,16 @@
 
 #### Status Code 400 (Bad Request)
 
-此状态码说明 Token 非法或已过期，返回内容中的 `message` 描述了失败原因。
+此状态码说明 Token 非法或已过期，作为验证错误对待。
 
 ```json
 {
-    "message": "Token 已过期"
+    "message": "验证错误",
+    "errors": {
+        "non_field_errors": [
+            "无法解析 Token"
+        ]
+    }
 }
 ```
 
