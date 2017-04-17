@@ -162,6 +162,7 @@
     "phone": "1555555555",
     "nickname": "飞天的猪",
     "signature": "some test",
+    "balance": 23.5,
     "gravatar_url": "http://oott.me/gravatar/2341fdsfsfsf2341.jpg",
     "options_sync_progress": true,
     "options_clean_cache": false,
@@ -171,6 +172,8 @@
     "options_auto_buy_chapter": false
 }
 ```
+
+其中 `balance` 为用户当前余额。
 
 ## 用户信息更新（需鉴权）
 
@@ -214,5 +217,4 @@
 ```
 
 以上返回为更新后的用户个人信息。
-
 
