@@ -3,7 +3,7 @@
 ## 充值金额接口
 
 !!! api ""
-    **POST** /user/deposit/record
+    **POST** /deposit/record
     
 ### Request
 
@@ -27,7 +27,7 @@
 ## 充值单查询接口
 
 !!! api ""
-    **GET** /user/deposit/record
+    **GET** /deposit/record
     
 ### Response
 
@@ -68,7 +68,7 @@
 ## 指定充值单查询接口
 
 !!! api ""
-    **GET** /user/deposit/record/:id
+    **GET** /deposit/record/:id
     
 ### Response
 
