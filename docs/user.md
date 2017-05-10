@@ -159,11 +159,11 @@
 {
     "user_id": 2341,
     "email": "doraemonext@gmail.com",
-    "phone": "1555555555",
+    "phone": "",
     "nickname": "飞天的猪",
     "signature": "some test",
     "balance": 23.5,
-    "gravatar_url": "http://oott.me/gravatar/2341fdsfsfsf2341.jpg",
+    "avatar": "/media/2017/01/01/2341fdsfsfsf2341.jpg",
     "options_sync_progress": true,
     "options_clean_cache": false,
     "options_display_progress": true,
@@ -184,10 +184,13 @@
 
 如果不需要修改，则无需提供对应项。
 
+如果需要上传头像，请使用 `application/form-data` 作为 Content-Type。
+
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
 | `nickname` | String | | 昵称(选填) |
 | `signature` | String | | 个性签名(选填) |
+| `avatar` | File | 头像 |
 | `options_sync_progress` | Boolean | | 是否同步进度(选填) |
 | `options_clean_cache` | Boolean | | 是否自动清除缓存(选填) |
 | `options_display_progress` | Boolean | | 是否显示阅读进度(选填) |
@@ -203,10 +206,10 @@
 {
     "user_id": 34134,
     "email": "doraemonext@gmail.com",
-    "phone": "1555555555",
+    "phone": "",
     "nickname": "飞天的猪",
     "signature": "some test",
-    "gravatar_url": "http://oott.me/gravatar/2341fdsfsfsf2341.jpg",
+    "avatar": "/media/2015/02/03/2341fdsfsfsf2341.jpg",
     "options_sync_progress": true,
     "options_clean_cache": false,
     "options_display_progress": true,
