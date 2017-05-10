@@ -190,7 +190,7 @@
 | --- | --- | --- | --- |
 | `nickname` | String | | 昵称(选填) |
 | `signature` | String | | 个性签名(选填) |
-| `avatar` | File | 头像 |
+| `avatar` | File | |头像 |
 | `options_sync_progress` | Boolean | | 是否同步进度(选填) |
 | `options_clean_cache` | Boolean | | 是否自动清除缓存(选填) |
 | `options_display_progress` | Boolean | | 是否显示阅读进度(选填) |
