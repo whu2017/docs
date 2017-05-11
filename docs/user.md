@@ -162,7 +162,8 @@
     "phone": "",
     "nickname": "飞天的猪",
     "signature": "some test",
-    "balance": 23.5,
+    "balance_rmb": 23.5,
+    "balance_book": 2350.0,
     "avatar": "/media/2017/01/01/2341fdsfsfsf2341.jpg",
     "options_sync_progress": true,
     "options_clean_cache": false,
@@ -173,7 +174,7 @@
 }
 ```
 
-其中 `balance` 为用户当前余额。
+其中 `balance_rmb` 为用户当前余额（人民币），`balance_book` 为当前用户余额（书币）。
 
 ## 用户信息更新（需鉴权）
 

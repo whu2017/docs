@@ -1,5 +1,23 @@
 # 充值 API 
 
+## 查询当前用户余额接口
+
+!!! api ""
+    **GET** /deposit/balance
+
+### Response
+
+#### Status Code 200 (OK)
+
+```json
+{
+    "balance_rmb": 53.0,
+    "balance_book": 5300.0
+}
+```
+
+`balance_rmb` 为当前用户人民币余额，`balance_book` 为当前用户书币余额。
+
 ## 充值金额接口
 
 !!! api ""
@@ -9,7 +27,7 @@
 
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `amount` | Float |  | 充值金额（正数） |
+| `amount` | Float |  | 充值人民币金额（正数） |
 
 ### Response
 
@@ -18,11 +36,12 @@
 ```json
 {
     "amount": 12.0,
-    "balance": 53.0
+    "balance_rmb": 53.0,
+    "balance_book": 5300.0
 }
 ```
     
-其中，`amount` 为当前充值金额，`balance` 为当前用户余额（充值后的）。
+其中，`amount` 为当前充值金额（人民币），`balance_rmb` 为当前用户人民币余额（充值后的），`balance_book` 为当前用户书币余额（充值后的）。
 
 ## 充值单查询接口
 
