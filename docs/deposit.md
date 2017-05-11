@@ -1,6 +1,6 @@
 # 充值 API 
 
-## 查询当前用户余额接口
+## 查询当前用户余额接口（需鉴权）
 
 !!! api ""
     **GET** /deposit/balance
@@ -18,7 +18,7 @@
 
 `balance_rmb` 为当前用户人民币余额，`balance_book` 为当前用户书币余额。
 
-## 充值金额接口
+## 充值金额接口（需鉴权）
 
 !!! api ""
     **POST** /deposit/record
@@ -43,7 +43,7 @@
     
 其中，`amount` 为当前充值金额（人民币），`balance_rmb` 为当前用户人民币余额（充值后的），`balance_book` 为当前用户书币余额（充值后的）。
 
-## 充值单查询接口
+## 充值单查询接口（需鉴权）
 
 !!! api ""
     **GET** /deposit/record
@@ -84,7 +84,7 @@
 * `create_timestamp`: 充值单创建时间
 * `modify_timestamp`: 充值单最后更新时间
 
-## 指定充值单查询接口
+## 指定充值单查询接口（需鉴权）
 
 !!! api ""
     **GET** /deposit/record/:id
