@@ -38,3 +38,7 @@ pages:
   - '充值 API': 'deposit.md'
   - '站内消息 API': 'notify.md'
   - '签到 API': 'check.md'
+  - '书城 API': 'bookshopping.md'
+  - '个人中心 API': 'personal.md'
+  - '书架 API': 'bookshelf.md'
+  - '阅读 API': 'reading.md'
