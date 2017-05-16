@@ -51,6 +51,8 @@
 
 !!! api ""
     **GET** /reading/book/:id/chapter
+    
+此处 `:id` 为书籍 ID。
 
 ### Request
 
@@ -87,9 +89,130 @@
     
 ## 阅读进度上报（需鉴权）
 
+!!! api ""
+    **PUT** /reading/book/:id/progress
+    
+此处 `:id` 为书籍 ID。
+
+### Request
+
+| 参数名称 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `chapter` | String | | 章节标识符 |
+| `paragraph` | Integer | | 当前段落的位移数量 |
+| `word` | Integer | | 当前字的位移数量 |
+
+### Response
+
+#### Status Code 200 (OK)
+
+```json
+{
+    "chapter": "Text/Section0002_0002.xhtml",
+    "paragraph": 15,
+    "word": 152,
+    "timestamp": "2017-05-10T02:50:38.907056Z"  // 阅读进度上报时间
+}
+```
+
 ## 阅读进度获取（需鉴权）
+
+!!! api ""
+    **GET** /reading/book/:id/progress
+    
+此处 `:id` 为书籍 ID。
+
+### Response
+
+#### Status Code 200 (OK)
+
+```json
+{
+    "chapter": "Text/Section0002_0002.xhtml",  // 章节标识符
+    "paragraph": 15,  // 段落位移数量
+    "word": 152,  // 字位移数量
+    "timestamp": "2017-05-10T02:50:38.907056Z"  // 阅读进度添加时间
+}
+```
+
+如果用户尚未阅读本书，则返回第一章第一段第一个字，即 `paragraph` 和 `word` 均为 0，`timestamp` 为当前时间。
+
+## 获取书签列表（需鉴权）
+
+!!! api ""
+    **GET** /reading/book/:id/bookmark
+    
+此处 `:id` 为书籍 ID。
+
+### Response
+
+#### Status Code 200 (OK)
+
+```json
+{
+    "results": [
+        {
+            "id": 25,  // 书签 ID
+            "chapter": "Text/Section0002_0002.xhtml",  // 章节标识符
+            "paragraph": 15,  // 段落位移数量
+            "word": 152,  // 字位移数量
+            "timestamp": "2017-05-10T02:50:38.907056Z"  // 书签添加时间
+        },
+        {
+            "id": 26,
+            "chapter": "Text/Section0002_0003.xhtml",
+            "paragraph": 0,
+            "word": 23,
+            "timestamp": "2017-05-10T02:50:39.907056Z"
+        },
+        ...
+    ]
+}
+```
 
 ## 添加书签（需鉴权）
 
+!!! api ""
+    **POST** /reading/book/:id/bookmark
+    
+此处 `:id` 为书籍 ID。
+
+### Request
+
+| 参数名称 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `chapter` | String | | 章节标识符 |
+| `paragraph` | Integer | | 当前段落的位移数量 |
+| `word` | Integer | | 当前字的位移数量 |
+
+### Response
+
+#### Status Code 200 (OK)
+
+```json
+{
+    "id": 25,  // 书签 ID
+    "chapter": "Text/Section0002_0002.xhtml",  // 章节标识符
+    "paragraph": 15,  // 段落位移数量
+    "word": 152,  // 字位移数量
+    "timestamp": "2017-05-10T02:50:38.907056Z"  // 书签添加时间
+}
+```
+
 ## 删除书签（需鉴权）
+
+!!! api ""
+    **DELETE** /reading/book/:id/bookmark/:bookmarkid
+    
+此处 `:id` 为书籍 ID，`:bookmarkid` 为书签 ID。
+
+### Response
+
+#### Status Code 204 (No Content)
+
+成功返回 204。
+
+#### Status Code 404 (Not Found)
+
+未找到返回 404。
 
