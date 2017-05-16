@@ -2,6 +2,9 @@
 
 ## 个性化推荐（需鉴权）
 
+!!! api ""
+    **GET** /recommendation/individuation
+
 ### Request
 
 | 参数名称 | 类型 | 默认值 | 描述 |
@@ -34,7 +37,14 @@
 }
 ```
 
-## 热门推荐（登陆后需授权）
+## 排行榜推荐（登陆后可鉴权）
+
+!!! api ""
+    **GET** /recommendation/rank
+    
+当不携带鉴权 Token 请求时，该 API 返回公共排行榜信息。
+
+当携带鉴权 Token 请求时，该 API 返回有个人色彩的排行榜信息。
 
 ### Request
 
