@@ -42,3 +42,4 @@ pages:
   - '个人中心 API': 'personal.md'
   - '书架 API': 'bookshelf.md'
   - '阅读 API': 'reading.md'
+  - '推荐 API': 'recommendation.md'
