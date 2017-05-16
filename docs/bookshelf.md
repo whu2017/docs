@@ -1,5 +1,20 @@
 # 书架 API
 
+## 将书籍加入书架（需授权）
+
+!!! api ""
+    **POST** /bookshelf
+    
+### Request
+
+| 参数名称 | 类型 | 默认值 | 描述 |
+| --- | --- | --- | --- |
+| `book_id` | Integer | | 图书 ID |
+    
+### Response
+
+#### Status Code 204 (No Content)
+
 ## 获取当前书架列表（需鉴权）
 
 !!! api ""
@@ -53,4 +68,10 @@
 ### Response
 
 #### Status Code 204 (No Content)
+
+如果删除成功，则返回 204。
+
+#### Status Code 404 (Not Found)
+
+如果给定的书籍 ID 不存在与当前用户的书架中，则返回 404。
 
