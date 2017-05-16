@@ -1,6 +1,6 @@
 # 书架 API
 
-## 将书籍加入书架（需授权）
+## 将书籍加入书架（需鉴权）
 
 !!! api ""
     **POST** /bookshelf
@@ -20,13 +20,6 @@
 !!! api ""
     **GET** /bookshelf
     
-### Request
-
-| 参数名称 | 类型 | 默认值 | 描述 |
-| --- | --- | --- | --- |
-| `page` | Integer | 1 | 请求的页数（选填） |
-| `page_size` | Integer | 10 | 每页包含的书籍数目（选填） |
-    
 ### Response
 
 #### Status Code 200 (OK)
@@ -34,8 +27,6 @@
 ```json
 {
     "count": 12,
-    "next": "http://oott.me/bookshelf/?page=2&page_size=8",
-    "previous": null,
     "results": [
         {
             "id": 1,  // 书籍 ID
