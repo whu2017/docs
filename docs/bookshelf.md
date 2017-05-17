@@ -29,7 +29,7 @@
     "count": 12,
     "results": [
         {
-            "id": 1,  // 书籍 ID
+            "book_id": 5,  // 书籍 ID
             "title": "书籍名称",
             "author": "作者",
             "cover": "封面图片地址",
@@ -37,7 +37,7 @@
             "is_bought": true  // 是否已经购买
         },
         {
-            "id": 2,
+            "book_id": 2,
             "title": "书籍名称",
             "author": "作者",
             "cover": "封面图片地址",
