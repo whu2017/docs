@@ -35,7 +35,6 @@ pages:
   - '概述': 'index.md'
   - '用户 API': 'user.md'
   - '权限 API': 'permission.md'
-  - '充值 API': 'deposit.md'
   - '站内消息 API': 'notify.md'
   - '签到 API': 'check.md'
   - '书城 API': 'bookshopping.md'
