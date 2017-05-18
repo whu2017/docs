@@ -5,7 +5,7 @@
 !!! api ""
     **POST** /user/permission/update
     
-更新已有的用户鉴权 Token 的过期时间，当更新后会返回新的 Token，原 Token 失效。
+更新已有的用户鉴权 Token 的过期时间，当更新后会返回新的 Token。
 
 ### Request
 
