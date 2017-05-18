@@ -9,7 +9,7 @@
 
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `amount` | Integer | | 推荐数量 |
+| `amount` | Integer | 120 | 推荐数量总数 |
 
 ### Response
 
@@ -17,6 +17,9 @@
 
 ```json
 {
+    "count": 12,
+    "next": "http://oott.me/recommendation/individuation?page=2&page_size=8",
+    "previous": null,
     "results": [
         {
             "id": 1,
@@ -50,7 +53,7 @@
 
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `amount` | Integer | | 推荐数量 |
+| `amount` | Integer | 120 | 推荐数量总数 |
 
 ### Response
 
@@ -58,6 +61,9 @@
 
 ```json
 {
+    "count": 12,
+    "next": "http://oott.me/recommendation/rank?page=2&page_size=8",
+    "previous": null,
     "results": [
         {
             "id": 1,
