@@ -9,7 +9,9 @@
 
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `amount` | Integer | 120 | 推荐数量总数 |
+| `amount` | Integer | 120 | 推荐数量总数（选填） |
+| `page` | Integer | 1 | 请求的页数（选填） |
+| `page_size` | Integer | 10 | 每页包含的书籍数目（选填） |
 
 ### Response
 
@@ -53,7 +55,9 @@
 
 | 参数名称 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `amount` | Integer | 120 | 推荐数量总数 |
+| `amount` | Integer | 120 | 推荐数量总数（选填） |
+| `page` | Integer | 1 | 请求的页数（选填） |
+| `page_size` | Integer | 10 | 每页包含的书籍数目（选填） |
 
 ### Response
 
