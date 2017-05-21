@@ -48,7 +48,7 @@
 }
 ```
 
-#### Status Code 400 (Bad Request)
+#### Status Code 422
 
 此状态码说明 Token 非法或已过期，作为验证错误对待。
 
