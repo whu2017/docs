@@ -271,4 +271,37 @@
 }
 ```
 
+## 获取最热搜索
+
+!!! api ""
+    **GET** /bookshopping/search/hottest
+
+### Response
+
+#### Status Code 200 (OK)
+
+目前会返回最多 10 个关键字。
+
+```json
+{
+    "results": ["第一本书", "第二本书"]
+}
+```
+
+## 获取用户历史搜索（需鉴权）
+
+!!! api ""
+    **GET** /bookshopping/search/history
+
+### Response
+
+#### Status Code 200 (OK)
+
+目前会返回最多 10 个关键字。
+
+```json
+{
+    "results": ["第一本书", "第二本书"]
+}
+```
 
