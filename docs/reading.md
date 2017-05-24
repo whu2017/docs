@@ -192,6 +192,7 @@
 | `chapter` | String | | 章节标识符 |
 | `paragraph` | Integer | | 当前段落的位移数量 |
 | `word` | Integer | | 当前字的位移数量 |
+| `detail` | String | | 书签内容 |
 
 ### Response
 
